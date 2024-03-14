@@ -17,22 +17,19 @@
   
         <div class="boardColumns" cdkDropListGroup>
           <div class="boardColumn" *ngFor="let column of board.columns">
-  
             <div class="columnTitle">
               {{ column.name }}
             </div>
-  
-            <div class="taskContainer"
-            cdkDropList
-            [cdkDropListData]="column.task"
-            (cdkDropListDropped)="drop($event)">
-            <div class="task" *ngFor="let item of column.task" cdkDrag>
+        
+            <div class="taskContainer" cdkDropList [cdkDropListData]="column.task" (cdkDropListDropped)="drop($event)">
+              <div class="task" *ngFor="let item of column.task" cdkDrag>
                 {{ item }}
-            </div>
+                <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div> <!-- Place the button inside the loop -->
+              </div>
             </div>
           </div>
-  
         </div>
+        
   
       </div>
   

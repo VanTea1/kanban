@@ -83,6 +83,7 @@
                     flex-grow: 1;
                 
                     .task {
+                        position: relative;
                         display: flex;
                         padding: 15px 12px;
                         background: white;
@@ -98,6 +99,35 @@
 
     }
 }
+
+.x-icon-button{
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    background: rgb(255, 98, 98);
+    right: -14px; 
+    border-radius: 50%;
+    top: -14px; 
+    background-image: url('../../../assets/delete_icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;    
+
+    /*
+    transform: scale(0);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    opacity: 0;
+    */
+    cursor: pointer;
+    
+    &:hover{
+        transform: scale(1.2);
+        background: rgb(255, 81, 81);
+
+        background-image: url('../../../assets/delete_icon.svg');
+        background-repeat: no-repeat;
+        background-position: center;    
+    }
+}  //end x-icon
 
     .cdk-drag-placeholder {
         opacity: 0;

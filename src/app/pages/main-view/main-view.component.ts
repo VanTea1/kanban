@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Board } from 'src/app/models/board.model';
 import { Column } from 'src/app/models/columns.model';
@@ -10,7 +10,7 @@ import { Column } from 'src/app/models/columns.model';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   board: Board = new Board('Test Board', [
     new Column('Ideas', [
@@ -51,6 +51,21 @@ export class MainViewComponent implements OnInit {
         event.currentIndex);
     }
   }
-
+  onXButtonClick(task: string, column: Column) {
+    console.log('Clicked task:', task);
+    console.log('Column before removal:', column);
+    
+    if (column && column.tasks) {
+      console.log('Tasks before removal:', column.tasks);
+      const taskIndex = column.tasks.indexOf(task);
+      console.log('Task index:', taskIndex);
+      
+      if (taskIndex !== -1) {
+        column.tasks.splice(taskIndex, 1);
+        console.log('Tasks after removal:', column.tasks);
+      }
+    }
+    this.cdr.detectChanges();
+  }
 
 }
