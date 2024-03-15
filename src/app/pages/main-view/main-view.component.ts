@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Board } from 'src/app/models/board.model';
 import { Column } from 'src/app/models/columns.model';
+import { MatDialog } from '@angular/material/dialog';
+import { AddItemModalComponent } from 'src/app/add-item-modal/add-item-modal.component';
 
 @Component({
   selector: 'app-main-view',
@@ -10,7 +12,7 @@ import { Column } from 'src/app/models/columns.model';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
 
   board: Board = new Board('Test Board', [
     new Column('Ideas', [
@@ -52,20 +54,31 @@ export class MainViewComponent implements OnInit {
     }
   }
   onXButtonClick(task: string, column: Column) {
-    console.log('Clicked task:', task);
-    console.log('Column before removal:', column);
-    
-    if (column && column.tasks) {
-      console.log('Tasks before removal:', column.tasks);
-      const taskIndex = column.tasks.indexOf(task);
-      console.log('Task index:', taskIndex);
+    if (column && column.task) {
+      const taskIndex = column.task.indexOf(task);
       
       if (taskIndex !== -1) {
-        column.tasks.splice(taskIndex, 1);
-        console.log('Tasks after removal:', column.tasks);
+        column.task.splice(taskIndex, 1);
       }
     }
     this.cdr.detectChanges();
   }
 
+
+  addItem() {
+    const dialogRef = this.dialog.open(AddItemModalComponent, {
+      width: '250px',
+      data: this.board.columns 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const selectedColumn: Column = result.column;
+        const taskName: string = result.taskName;
+        if (selectedColumn && taskName) {
+          selectedColumn.task.push(taskName); 
+        }
+      }
+    });
+  }
 }

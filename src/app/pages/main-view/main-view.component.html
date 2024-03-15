@@ -11,6 +11,7 @@
   
       <div class="boardBar">
         <p class="boardName">{{ board.name }}</p>
+        <button class="newItemB" (click)="addItem()">Add item</button>
       </div>
   
       <div class="boardWrapper">
@@ -24,7 +25,7 @@
             <div class="taskContainer" cdkDropList [cdkDropListData]="column.task" (cdkDropListDropped)="drop($event)">
               <div class="task" *ngFor="let item of column.task" cdkDrag>
                 {{ item }}
-                <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div> <!-- Place the button inside the loop -->
+                <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
               </div>
             </div>
           </div>
