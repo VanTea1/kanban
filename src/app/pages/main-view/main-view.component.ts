@@ -8,7 +8,7 @@ import { AddItemModalComponent } from 'src/app/add-item-modal/add-item-modal.com
 @Component({
   selector: 'app-main-view',
   templateUrl: './main-view.component.html',
-  styleUrls: ['./main-view.component.scss']
+  styleUrls: ['./main-view.component.scss'],
 })
 export class MainViewComponent implements OnInit {
 
@@ -81,4 +81,5 @@ export class MainViewComponent implements OnInit {
       }
     });
   }
+  
 }
