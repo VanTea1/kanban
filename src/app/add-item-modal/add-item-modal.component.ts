@@ -17,7 +17,7 @@ export class AddItemModalComponent {
   ) {}
 
   onCancel(): void {
-    this.dialogRef.close(); // Close the dialog without passing any data
+    this.dialogRef.close(); 
   }
 
 }

@@ -1,39 +1,42 @@
 <div class="root">
-    <div class="navbar hasBackgroundDark">
-      <div class="navbarBrand">
-        <div class="navbarItem">
-          <h1 class="appName hasGradientText">kanban</h1>
-        </div>
+  <div class="navbar hasBackgroundDark">
+    <div class="navbarBrand">
+      <div class="navbarItem">
+        <h1 class="appName hasGradientText">kanban</h1>
       </div>
     </div>
-  
-    <div class="board">
-  
-      <div class="boardBar">
-        <p class="boardName">{{ board.name }}</p>
-        <button class="newItemB" (click)="addItem()">Add item</button>
-      </div>
-  
-      <div class="boardWrapper">
-  
-        <div class="boardColumns" cdkDropListGroup>
-          <div class="boardColumn" *ngFor="let column of board.columns">
-            <div class="columnTitle">
-              {{ column.name }}
+  </div>
+
+  <div class="board">
+
+    <div class="boardBar">
+      <p class="boardName">{{ board.name }}</p>
+      <button class="newBoardB" (click)="addItem()">Add Board</button>
+      <button class="delBoardB" (click)="addItem()">Remove Board</button>
+    </div>
+
+    <div class="boardWrapper">
+
+      <div class="boardColumns" cdkDropListGroup>
+        <div class="boardColumn" *ngFor="let column of board.columns">
+          <div class="columnTitle">
+            {{ column.name }}
+          </div>
+
+          <div class="taskContainer" cdkDropList [cdkDropListData]="column.task" (cdkDropListDropped)="drop($event)">
+            <div class="task" *ngFor="let item of column.task" cdkDrag>
+              {{ item }}
+              <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
             </div>
-        
-            <div class="taskContainer" cdkDropList [cdkDropListData]="column.task" (cdkDropListDropped)="drop($event)">
-              <div class="task" *ngFor="let item of column.task" cdkDrag>
-                {{ item }}
-                <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
-              </div>
-            </div>
+            <button class="newItemB" (click)="addItem()">Add item</button>
+            <button class="newBoardNameB" (click)="addItem()">Change board name</button>
           </div>
         </div>
-        
-  
       </div>
-  
+
+
     </div>
-  
+
   </div>
+
+</div>
