@@ -11,12 +11,18 @@ import { AddItemModalComponent } from './add-item-modal/add-item-modal.component
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { AddColumnModalComponent } from './add-column-modal/add-column-modal.component';
+import { DeleteColumnModalComponent } from './delete-column-modal/delete-column-modal.component';
+import { ChangeColumnNameModalComponent } from './change-name-column/change-name-column.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
-    AddItemModalComponent
+    AddItemModalComponent,
+    AddColumnModalComponent,
+    DeleteColumnModalComponent,
+    ChangeColumnNameModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+<h2>Change Column Name</h2>
+<mat-form-field>
+  <input matInput placeholder="Column Name" [(ngModel)]="columnName">
+</mat-form-field>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="columnName" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

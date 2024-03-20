@@ -1,0 +1,8 @@
+<h2>Add New Column</h2>
+<mat-form-field>
+  <input matInput placeholder="Column Name" [(ngModel)]="columnName">
+</mat-form-field>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="{ columnName: columnName }" cdkFocusInitial>Add</button>
+</mat-dialog-actions>

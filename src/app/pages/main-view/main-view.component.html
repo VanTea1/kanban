@@ -11,8 +11,8 @@
 
     <div class="boardBar">
       <p class="boardName">{{ board.name }}</p>
-      <button class="newBoardB" (click)="addItem()">Add Board</button>
-      <button class="delBoardB" (click)="addItem()">Remove Board</button>
+      <button class="newBoardB" (click)="addColumn()">Add Column</button>
+      <button class="delBoardB" (click)="deleteColumn()">Remove Column</button>
     </div>
 
     <div class="boardWrapper">
@@ -28,8 +28,8 @@
               {{ item }}
               <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
             </div>
-            <button class="newItemB" (click)="addItem()">Add item</button>
-            <button class="newBoardNameB" (click)="addItem()">Change board name</button>
+            <button class="newItemB" (click)="addItem(column)">Add item</button>
+            <button class="newBoardNameB" (click)="changeNameColumn(column)">Change column name</button>
           </div>
         </div>
       </div>

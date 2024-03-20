@@ -1,0 +1,11 @@
+<h2>Select Column to Delete</h2>
+<mat-form-field>
+  <mat-label>Column</mat-label>
+  <mat-select [(value)]="selectedColumn">
+    <mat-option *ngFor="let column of columns" [value]="column">{{ column.name }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="selectedColumn" cdkFocusInitial>Delete</button>
+</mat-dialog-actions>

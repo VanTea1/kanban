@@ -4,7 +4,9 @@ import { Board } from 'src/app/models/board.model';
 import { Column } from 'src/app/models/columns.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddItemModalComponent } from 'src/app/add-item-modal/add-item-modal.component';
-
+import { AddColumnModalComponent } from 'src/app/add-column-modal/add-column-modal.component';
+import { DeleteColumnModalComponent } from 'src/app/delete-column-modal/delete-column-modal.component';
+import { ChangeColumnNameModalComponent } from 'src/app/change-name-column/change-name-column.component';
 @Component({
   selector: 'app-main-view',
   templateUrl: './main-view.component.html',
@@ -65,21 +67,64 @@ export class MainViewComponent implements OnInit {
   }
 
 
-  addItem() {
+  addItem(column: Column) {
     const dialogRef = this.dialog.open(AddItemModalComponent, {
       width: '250px',
-      data: this.board.columns 
+      data: { column: column }
     });
-
+  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        const selectedColumn: Column = result.column;
         const taskName: string = result.taskName;
-        if (selectedColumn && taskName) {
-          selectedColumn.task.push(taskName); 
+        if (taskName) {
+          column.task.push(taskName);
         }
       }
     });
   }
+
+
+  addColumn(){
+    const dialogRef = this.dialog.open(AddColumnModalComponent, {
+      width: '250px'
+    });
   
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.columnName) {
+        const columnName: string = result.columnName;
+        const newColumn = new Column(columnName, []);
+        this.board.columns.push(newColumn);
+      }
+    });
+  }
+
+  deleteColumn() {
+    const dialogRef = this.dialog.open(DeleteColumnModalComponent, {
+      width: '250px',
+      data: this.board.columns
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const selectedColumn: Column = result;
+        const columnIndex = this.board.columns.indexOf(selectedColumn);
+        if (columnIndex !== -1) {
+          this.board.columns.splice(columnIndex, 1);
+        }
+      }
+    });
+  }
+
+  changeNameColumn(column: Column) {
+    const dialogRef = this.dialog.open(ChangeColumnNameModalComponent, {
+      width: '250px',
+      data: { columnName: column.name }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        column.name = result;
+      }
+    });
+  }
 }
