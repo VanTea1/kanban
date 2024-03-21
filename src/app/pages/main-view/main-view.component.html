@@ -21,6 +21,8 @@
         <div class="boardColumn" *ngFor="let column of board.columns">
           <div class="columnTitle">
             {{ column.name }}
+            <button class="newBoardNameB" (click)="changeNameColumn(column)">✏️</button>
+            <button class="newItemB" (click)="addItem(column)">Add Item</button>
           </div>
 
           <div class="taskContainer" cdkDropList [cdkDropListData]="column.task" (cdkDropListDropped)="drop($event)">
@@ -28,8 +30,6 @@
               {{ item }}
               <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
             </div>
-            <button class="newItemB" (click)="addItem(column)">Add item</button>
-            <button class="newBoardNameB" (click)="changeNameColumn(column)">Change column name</button>
           </div>
         </div>
       </div>
