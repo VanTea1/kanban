@@ -1,10 +1,16 @@
-<mat-dialog-content>
-    <h2>Add New Task</h2>
-    <mat-form-field>
-      <input matInput placeholder="Task Name" [(ngModel)]="taskName">
-    </mat-form-field>
+<div class="wrapper">
+  <mat-dialog-content>
+    <h2 class="title">Add New Task</h2>
+    <div class="form-field-container">
+      <mat-form-field class="mat-form-field">
+        <input matInput placeholder="Task Name" [(ngModel)]="taskName">
+      </mat-form-field>
+    </div>
   </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-button [mat-dialog-close]="{taskName: taskName}" cdkFocusInitial>Add</button>
-  </mat-dialog-actions>
+  <div class="actions">
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onCancel()" class="buttons">Cancel</button>
+      <button mat-button [mat-dialog-close]="{taskName: taskName}" cdkFocusInitial class="buttons">Add</button>
+    </mat-dialog-actions>
+  </div>
+</div>

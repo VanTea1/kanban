@@ -1,11 +1,17 @@
-<h2>Select Column to Delete</h2>
-<mat-form-field>
-  <mat-label>Column</mat-label>
-  <mat-select [(value)]="selectedColumn">
-    <mat-option *ngFor="let column of columns" [value]="column">{{ column.name }}</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-dialog-actions align="end">
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button [mat-dialog-close]="selectedColumn" cdkFocusInitial>Delete</button>
-</mat-dialog-actions>
+<div class="wrapper">
+  <h2 class="title">Select Column to Delete</h2>
+  <div class="form-field-container">
+    <mat-form-field class="mat-form-field">
+      <mat-label>Column</mat-label>
+      <mat-select [(value)]="selectedColumn">
+        <mat-option *ngFor="let column of columns" [value]="column">{{ column.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="actions">
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onCancel()" class="buttons">Cancel</button>
+      <button mat-button [mat-dialog-close]="selectedColumn" cdkFocusInitial class="buttons">Delete</button>
+    </mat-dialog-actions>
+  </div>
+</div>
