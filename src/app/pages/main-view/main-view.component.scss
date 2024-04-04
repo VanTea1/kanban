@@ -63,15 +63,15 @@
             width: auto;
             text-transform: uppercase;
         }
-        
+
         .delBoardB {
             margin-left: 15px;
         }
-        
+
         .newBoardB {
             margin-left: auto;
         }
-}
+    }
 
     .boardWrapper {
         display: flex;
@@ -97,7 +97,7 @@
                 padding: 25px;
 
                 max-height: calc(100vh - 200px);
-                overflow-y:auto;
+                overflow-y: auto;
 
                 .newItemB {
                     position: absolute;
@@ -115,12 +115,16 @@
                     text-transform: uppercase;
                 }
 
-                .newBoardNameB{
-                    font-size: 20px;
-                    padding-left: 0;
+                .newBoardNameB {
                     background-color: transparent;
                     border: none;
                     cursor: pointer;
+
+                    height: 23px;
+                    width: 23px;
+                    background-image: url('../../../assets/edit-pen-icon.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
                 }
 
                 &:not(:first-child) {
@@ -140,7 +144,7 @@
                     display: flex;
                     flex-direction: column;
                     position: relative;
-                
+
                     .task {
                         position: relative;
                         display: flex;
@@ -175,24 +179,26 @@
                             background-position: center;
                         }
 
-                        
+
                     }
 
                     .changeItem {
                         position: absolute;
-                        height: 34px;
-                        width: 34px;
-                        font-size: 20px;
-                        right: 19px;
+                        height: 30px;
+                        width: 30px;
+
+                        right: 27px;
                         top: -14px;
- 
+                        background-image: url('../../../assets/edit-pen-icon.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
                         cursor: pointer;
 
                         &:hover {
                             transform: scale(1.2);
                         }
 
-                        
+
                     }
                 }
             }
@@ -200,6 +206,3 @@
 
     }
 }
-
-
-

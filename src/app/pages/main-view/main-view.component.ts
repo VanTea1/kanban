@@ -15,6 +15,7 @@ import { ChangeItemModalComponent } from 'src/app/change-item-modal/change-item-
 })
 export class MainViewComponent implements OnInit {
 
+  
   constructor(private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
 
   board: Board = new Board('Test Board', [
