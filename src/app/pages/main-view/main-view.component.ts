@@ -7,6 +7,7 @@ import { AddItemModalComponent } from 'src/app/add-item-modal/add-item-modal.com
 import { AddColumnModalComponent } from 'src/app/add-column-modal/add-column-modal.component';
 import { DeleteColumnModalComponent } from 'src/app/delete-column-modal/delete-column-modal.component';
 import { ChangeColumnNameModalComponent } from 'src/app/change-name-column/change-name-column.component';
+import { ChangeItemModalComponent } from 'src/app/change-item-modal/change-item-modal.component';
 @Component({
   selector: 'app-main-view',
   templateUrl: './main-view.component.html',
@@ -83,6 +84,22 @@ export class MainViewComponent implements OnInit {
     });
   }
 
+  changeItem(taskName: string, column: Column) {
+    const taskIndex = column.task.findIndex(task => task === taskName);
+    if (taskIndex !== -1) {
+      const dialogRef = this.dialog.open(ChangeItemModalComponent, {
+        width: '250px',
+        data: { task: column.task[taskIndex], column: column }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          // Update the task directly with the modified taskName
+          column.task[taskIndex] = result.taskName;
+        }
+      });
+    }
+  }
 
   addColumn(){
     const dialogRef = this.dialog.open(AddColumnModalComponent, {

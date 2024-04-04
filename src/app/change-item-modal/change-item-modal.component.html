@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <h2 class="title">Change Item Name</h2>
+    <div class="form-field-container">
+      <mat-form-field class="mat-form-field">
+        <input matInput placeholder="Item Name" [(ngModel)]="task.taskName">
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <mat-dialog-actions align="end">
+        <button mat-button (click)="onCancel()" class="buttons">Cancel</button>
+        <button mat-button (click)="onSave()" cdkFocusInitial class="buttons">Save</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
