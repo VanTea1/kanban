@@ -21,7 +21,7 @@
         <div class="boardColumn" *ngFor="let column of board.columns">
           <div class="columnTitle" (click)="changeNameColumn(column)">
             {{ column.name }}
-            <button class="newBoardNameB" (click)="changeNameColumn(column)"></button>
+            <button class="newBoardNameB" ></button>
             <button class="newItemB" (click)="addItem(column)">Add Item</button>
           </div>
 
@@ -29,7 +29,7 @@
             <div class="task" *ngFor="let item of column.task" cdkDrag (click)="changeItem(item, column)">
               {{ item }}
               <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
-              <div class="changeItem" (click)="changeItem(item, column)"></div>
+              <div class="changeItem"></div>
             </div>
           </div>
         </div>
