@@ -1,208 +1,240 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @media only screen and (max-width: 1024px) {
+    height: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    height: auto;
+  }
 }
 
 .hasBackgroundDark {
-    background-color: rgba(14, 14, 14, 0.7);
+  background-color: rgba(14, 14, 14, 0.7);
 }
 
 .appName {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Lato', sans-serif;
-    margin-left: 15px;
-    margin-top: 10px;
-    text-transform: uppercase;
-
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  margin-left: 15px;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .hasGradientText {
-    background: -webkit-linear-gradient(#13F7F4, #2AF598);
-    background-clip: border-box;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(#13f7f4, #2af598);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-
 .board {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  .boardBar {
+    background: rgba(gray, 0.5);
+    padding: 8px 15px;
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
 
-    min-width: 0;
-    min-height: 0;
+    .boardName {
+      font-size: 20px;
+      font-weight: 500;
+      color: white;
+    }
 
-    .boardBar {
-        background: rgba(gray, 0.5);
-        padding: 8px 15px;
-        display: flex;
-        position: relative;
-        justify-content: space-between;
+    .newBoardB,
+    .delBoardB {
+      background-color: #3a3a3a86;
+      border-radius: 6px;
+      border-width: 0;
+      color: #fff;
+      cursor: pointer;
+      font-size: 100%;
+      height: 44px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      outline: none;
+      width: auto;
+      text-transform: uppercase;
+    }
+
+    .delBoardB {
+      margin-left: 15px;
+    }
+
+    .newBoardB {
+      margin-left: auto;
+    }
+  }
+
+  .boardWrapper {
+    // display: flex;
+    // flex-grow: 1;
+    // overflow-x: auto;
+    align-items: center;
+    justify-content: center;
+    // padding: 15px;
+
+    .boardColumns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px;
+      justify-content: center;
+
+      @media only screen and (max-width: 1024px) {
+        flex-wrap: wrap;
+        gap: 60px;
+        padding: 30px;
+      }
+      @media only screen and (max-width: 767px) {
+        flex-direction: column;
         align-items: center;
+        width: 100%;
+      }
 
-        .boardName {
-            font-size: 20px;
-            font-weight: 500;
-            color: white;
-        }
-
-        .newBoardB,
-        .delBoardB {
-            background-color: #3a3a3a86;
-            border-radius: 6px;
-            border-width: 0;
-            color: #fff;
-            cursor: pointer;
-            font-size: 100%;
-            height: 44px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            outline: none;
-            width: auto;
-            text-transform: uppercase;
-        }
-
-        .delBoardB {
-            margin-left: 15px;
-        }
-
-        .newBoardB {
-            margin-left: auto;
-        }
-    }
-
-    .boardWrapper {
+      .boardColumn {
+        position: relative;
         display: flex;
+        justify-content: center;
+        flex-direction: column;
         flex-grow: 1;
-        overflow-x: auto;
+        flex-basis: 0;
+        background: rgba(white, 0.5);
 
-        .boardColumns {
-            display: flex;
-            flex-grow: 1;
+        border-radius: 4px;
+        width: 100%;
+        min-width: 230px;
+        max-width: 400px;
 
-            .boardColumn {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1;
-                flex-basis: 0;
-                background: rgba(white, 0.5);
+        padding: 25px;
 
-                border-radius: 4px;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
 
-                min-width: 300px;
-                margin: 50px;
-                padding: 25px;
-
-                max-height: calc(100vh - 200px);
-                overflow-y: auto;
-
-                .newItemB {
-                    position: absolute;
-                    right: 10px;
-                    margin-bottom: 24px;
-
-                    background-color: #3a3a3a86;
-                    border-radius: 4px;
-                    border-width: 0;
-                    color: #fff;
-                    cursor: pointer;
-                    font-size: 20px;
-                    font-weight: 200;
-                    outline: none;
-                    text-transform: uppercase;
-                }
-
-                .newBoardNameB {
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-
-                    height: 23px;
-                    width: 23px;
-                    background-image: url('../../../assets/edit-pen-icon.svg');
-                    background-repeat: no-repeat;
-                    background-position: center;
-                }
-
-                &:not(:first-child) {
-                    margin-left: 0;
-                }
-
-                .columnTitle {
-                    font-size: 20px;
-                    font-weight: 200;
-                    font-family: 'Lato', sans-serif;
-                    text-transform: uppercase;
-                    margin-bottom: 20px;
-                }
-
-                .taskContainer {
-                    flex-grow: 1;
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-
-                    .task {
-                        position: relative;
-                        display: flex;
-                        padding: 15px 12px;
-                        background: white;
-                        border-bottom: solid 1px #DDDD;
-                        border-radius: 4px;
-                        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
-                            0 3px 14px 2px rgba(0, 0, 0, 0.05);
-                        margin-bottom: 15px;
-                    }
-
-                    .x-icon-button {
-                        position: absolute;
-                        height: 34px;
-                        width: 34px;
-                        background: rgb(255, 98, 98);
-                        right: -14px;
-                        border-radius: 50%;
-                        top: -14px;
-                        background-image: url('../../../assets/delete_icon.svg');
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        cursor: pointer;
-
-                        &:hover {
-                            transform: scale(1.2);
-                            background: rgb(255, 81, 81);
-
-                            background-image: url('../../../assets/delete_icon.svg');
-                            background-repeat: no-repeat;
-                            background-position: center;
-                        }
-
-
-                    }
-
-                    .changeItem {
-                        position: absolute;
-                        height: 30px;
-                        width: 30px;
-
-                        right: 27px;
-                        top: -14px;
-                        background-image: url('../../../assets/edit-pen-icon.svg');
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        cursor: pointer;
-
-                        &:hover {
-                            transform: scale(1.2);
-                        }
-
-
-                    }
-                }
-            }
+        @media only screen and (max-width: 1024px) {
+          min-width: 300px;
+        }
+        @media only screen and (max-width: 768px) {
+          min-width: 300px;
+          min-height: 450px;
         }
 
+        .newItemB {
+          position: absolute;
+          right: 10px;
+          margin-bottom: 24px;
+
+          background-color: #3a3a3a86;
+          border-radius: 4px;
+          border-width: 0;
+          color: #fff;
+          cursor: pointer;
+          font-size: 20px;
+          font-weight: 200;
+          outline: none;
+          text-transform: uppercase;
+        }
+
+        .newBoardNameB {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+
+          height: 23px;
+          width: 23px;
+          background-image: url("../../../assets/edit-pen-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        // &:not(:first-child) {
+        //   margin-left: 0;
+        //   @media only screen and (max-width: 1024px) {
+        //     margin-left: 40px;
+        //   }
+        //   @media only screen and (max-width: 768px) {
+        //     margin-left: 20px;
+        //   }
+        // }
+
+        .columnTitle {
+          font-size: 20px;
+          font-weight: 200;
+          font-family: "Lato", sans-serif;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+
+        .taskContainer {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+
+          .task {
+            position: relative;
+            display: flex;
+            padding: 15px 12px;
+            background: white;
+            border-bottom: solid 1px #dddd;
+            border-radius: 4px;
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
+              0 3px 14px 2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+          }
+
+          .x-icon-button {
+            position: absolute;
+            height: 34px;
+            width: 34px;
+            background: rgb(255, 98, 98);
+            right: -14px;
+            border-radius: 50%;
+            top: -14px;
+            background-image: url("../../../assets/delete_icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+
+            &:hover {
+              transform: scale(1.2);
+              background: rgb(255, 81, 81);
+
+              background-image: url("../../../assets/delete_icon.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          .changeItem {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+
+            right: 27px;
+            top: -14px;
+            background-image: url("../../../assets/edit-pen-icon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
     }
+  }
 }
