@@ -78,13 +78,8 @@
   }
 
   .boardWrapper {
-    // display: flex;
-    // flex-grow: 1;
-    // overflow-x: auto;
     align-items: center;
     justify-content: center;
-    // padding: 15px;
-
     .boardColumns {
       display: flex;
       flex-wrap: wrap;
@@ -163,15 +158,6 @@
           }
         }
 
-        // &:not(:first-child) {
-        //   margin-left: 0;
-        //   @media only screen and (max-width: 1024px) {
-        //     margin-left: 40px;
-        //   }
-        //   @media only screen and (max-width: 768px) {
-        //     margin-left: 20px;
-        //   }
-        // }
 
         .columnTitle {
           font-size: 20px;
