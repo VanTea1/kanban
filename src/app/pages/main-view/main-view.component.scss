@@ -202,6 +202,11 @@
             box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
               0 3px 14px 2px rgba(0, 0, 0, 0.05);
             margin-bottom: 15px;
+            
+            .taskItem{
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
           }
 
           .x-icon-button {
@@ -238,6 +243,7 @@
             background-repeat: no-repeat;
             background-position: center;
             cursor: pointer;
+            
 
             &:hover {
               transform: scale(1.2);

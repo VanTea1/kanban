@@ -12,10 +12,13 @@
         justify-content: flex-end;
         width: 100%;
         padding-right: 20px;
+
     }
 
     .mat-form-field {
         width: auto;
+
+
     }
 
     .actions {
@@ -34,4 +37,9 @@
             text-transform: uppercase;
         }
     }
+}
+
+.columnName{
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
