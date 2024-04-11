@@ -1,34 +1,38 @@
 .wrapper {
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-top: 20px;
+  }
+  .form-field-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 20px;
+  }
+  .mat-form-field {
+    width: auto;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
 
-    .title {
-        font-size: 20px;
-        font-weight: 600;
-        padding-left: 10px;
-        padding-top: 20px;
+    .buttons {
+      margin: 0;
+      margin-right: 10px;
+      padding: 8px 12px;
+      background-color: #3a3a3a86;
+      border-radius: 4px;
+      border-width: 0;
+      color: #fff;
+      padding-left: 10px;
+      text-transform: uppercase;
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      &:hover {
+        text-shadow: black 2px 2px 2px;
+        background-color: #1d1c1c86;
+      }
     }
-    .form-field-container {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        padding-right: 20px;
-    }
-    .mat-form-field {
-        width: auto;
-    }
-    .actions {
-        display: flex; 
-        justify-content: flex-end;
-
-        .buttons {
-            margin: 0; 
-            margin-right: 10px;
-            padding: 8px 12px; 
-            background-color: #3a3a3a86;
-            border-radius: 4px;
-            border-width: 0;
-            color: #fff;
-            padding-left: 10px;
-            text-transform: uppercase;
-        }
-    }
+  }
 }
