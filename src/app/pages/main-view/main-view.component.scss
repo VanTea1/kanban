@@ -106,7 +106,7 @@
       .boardColumn {
         position: relative;
         display: flex;
-        justify-content: center;
+
         flex-direction: column;
         flex-grow: 1;
         flex-basis: 0;
@@ -147,6 +147,8 @@
         }
 
         .newBoardNameB {
+          position: absolute;
+          right: 130px;
           background-color: transparent;
           border: none;
           cursor: pointer;
@@ -156,6 +158,9 @@
           background-image: url("../../../assets/edit-pen-icon.svg");
           background-repeat: no-repeat;
           background-position: center;
+          &:hover {
+            transform: scale(1.2);
+          }
         }
 
         // &:not(:first-child) {
@@ -174,6 +179,10 @@
           font-family: "Lato", sans-serif;
           text-transform: uppercase;
           margin-bottom: 20px;
+          max-width: 140px;
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .taskContainer {
@@ -181,6 +190,7 @@
           display: flex;
           flex-direction: column;
           position: relative;
+          min-height: 200px;
 
           .task {
             position: relative;
