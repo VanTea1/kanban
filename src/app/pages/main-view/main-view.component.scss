@@ -66,6 +66,11 @@
       outline: none;
       width: auto;
       text-transform: uppercase;
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      &:hover {
+        text-shadow: black 2px 2px 2px;
+        background-color: #6c6c6c86;
+      }
     }
 
     .delBoardB {
@@ -135,6 +140,11 @@
           font-weight: 200;
           outline: none;
           text-transform: uppercase;
+          transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+          &:hover {
+            text-shadow: black 2px 2px 2px;
+            background-color: #6c6c6c86;
+          }
         }
 
         .newBoardNameB {
@@ -149,6 +159,7 @@
           background-image: url("../../../assets/edit-pen-icon.svg");
           background-repeat: no-repeat;
           background-position: center;
+          transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
           &:hover {
             transform: scale(1.2);
           }
@@ -183,8 +194,8 @@
             box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05),
               0 3px 14px 2px rgba(0, 0, 0, 0.05);
             margin-bottom: 15px;
-            
-            .taskItem{
+
+            .taskItem {
               overflow: hidden;
               text-overflow: ellipsis;
             }
@@ -202,14 +213,15 @@
             background-repeat: no-repeat;
             background-position: center;
             cursor: pointer;
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
             &:hover {
               transform: scale(1.2);
-              background: rgb(255, 81, 81);
+              background-color: rgb(255, 81, 81);
 
-              background-image: url("../../../assets/delete_icon.svg");
-              background-repeat: no-repeat;
-              background-position: center;
+              // background-image: url("../../../assets/delete_icon.svg");
+              // background-repeat: no-repeat;
+              // background-position: center;
             }
           }
 
@@ -223,7 +235,8 @@
             background-image: url("../../../assets/edit-pen-icon.svg");
             background-repeat: no-repeat;
             background-position: center;
-            cursor: pointer; 
+            cursor: pointer;
+            transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
             &:hover {
               transform: scale(1.2);
