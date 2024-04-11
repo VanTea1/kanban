@@ -101,19 +101,15 @@
       .boardColumn {
         position: relative;
         display: flex;
-
         flex-direction: column;
         flex-grow: 1;
         flex-basis: 0;
         background: rgba(white, 0.5);
-
         border-radius: 4px;
         width: 100%;
         min-width: 230px;
         max-width: 400px;
-
         padding: 25px;
-
         max-height: calc(100vh - 200px);
         overflow-y: auto;
 
@@ -157,7 +153,6 @@
             transform: scale(1.2);
           }
         }
-
 
         .columnTitle {
           font-size: 20px;
@@ -228,8 +223,7 @@
             background-image: url("../../../assets/edit-pen-icon.svg");
             background-repeat: no-repeat;
             background-position: center;
-            cursor: pointer;
-            
+            cursor: pointer; 
 
             &:hover {
               transform: scale(1.2);

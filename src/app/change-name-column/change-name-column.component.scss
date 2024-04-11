@@ -1,27 +1,22 @@
 .wrapper {
-
     .title {
         font-size: 20px;
         font-weight: 600;
         padding-left: 10px;
         padding-top: 20px;
     }
-
     .form-field-container {
         display: flex;
         justify-content: flex-end;
         width: 100%;
         padding-right: 20px;
     }
-
     .mat-form-field {
         width: auto;
     }
-
     .actions {
         display: flex; 
         justify-content: flex-end;
-
         .buttons {
             margin: 0; 
             margin-right: 10px;
