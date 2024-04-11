@@ -8,7 +8,6 @@
   </div>
 
   <div class="board">
-
     <div class="boardBar">
       <p class="boardName">{{ board.name }}</p>
       <button class="newBoardB" (click)="addColumn()">Add Column</button>
@@ -16,28 +15,39 @@
     </div>
 
     <div class="boardWrapper">
-
       <div class="boardColumns" cdkDropListGroup>
         <div class="boardColumn" *ngFor="let column of board.columns">
-          <div class="columnTitle" (click)="changeNameColumn(column)">
+          <div class="columnTitle">
             {{ column.name }}
-            <button class="newBoardNameB" ></button>
-            <button class="newItemB" (click)="addItem(column)">Add Item</button>
           </div>
+          <button
+            class="newBoardNameB"
+            (click)="changeNameColumn(column)"
+          ></button>
+          <button class="newItemB" (click)="addItem(column)">Add Item</button>
 
-          <div class="taskContainer" cdkDropList [cdkDropListData]="column.task" (cdkDropListDropped)="drop($event)">
-            <div class="task" *ngFor="let item of column.task" cdkDrag (click)="changeItem(item, column)">
+          <div
+            class="taskContainer"
+            cdkDropList
+            [cdkDropListData]="column.task"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              class="task"
+              *ngFor="let item of column.task"
+              cdkDrag
+              (click)="changeItem(item, column)"
+            >
               {{ item }}
-              <div class="x-icon-button" (click)="onXButtonClick(item, column)"></div>
+              <div
+                class="x-icon-button"
+                (click)="onXButtonClick(item, column)"
+              ></div>
               <div class="changeItem"></div>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
-
   </div>
-
 </div>
