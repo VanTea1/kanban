@@ -10,6 +10,11 @@
   }
 }
 
+.cdk-drag-placeholder {
+  background-color: red;
+  cursor: grab;
+}
+
 .hasBackgroundDark {
   background-color: rgba(14, 14, 14, 0.7);
 }
@@ -225,10 +230,6 @@
             &:hover {
               transform: scale(1.2);
               background-color: rgb(255, 81, 81);
-
-              // background-image: url("../../../assets/delete_icon.svg");
-              // background-repeat: no-repeat;
-              // background-position: center;
             }
           }
 
@@ -253,4 +254,9 @@
       }
     }
   }
+}
+
+.cdk-drag-preview {
+  cursor: grab;
+  overflow: hidden;
 }
